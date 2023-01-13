@@ -1,0 +1,39 @@
+BEGIN TRANSACTION;
+CREATE TABLE IF NOT EXISTS "Room" (
+	"Id"	INTEGER,
+	"Capacity"	INTEGER,
+	PRIMARY KEY("Id" AUTOINCREMENT)
+);
+CREATE TABLE IF NOT EXISTS "Movie" (
+	"Id"	INTEGER,
+	"Name"	TEXT,
+	"Description"	TEXT,
+	"ImageURL"	TEXT,
+	"MovieDisplays"	INTEGER,
+	"MovieCategory"	TEXT,
+	FOREIGN KEY("MovieDisplays") REFERENCES "MovieDisplay"("Id"),
+	PRIMARY KEY("Id" AUTOINCREMENT)
+);
+CREATE TABLE IF NOT EXISTS "Order" (
+	"Id"	INTEGER,
+	"Price"	REAL,
+	"Tickets"	INTEGER NOT NULL,
+	FOREIGN KEY("Tickets") REFERENCES "Ticket"("Id"),
+	PRIMARY KEY("Id" AUTOINCREMENT)
+);
+CREATE TABLE IF NOT EXISTS "MovieDisplay" (
+	"Id"	INTEGER,
+	"DateTime"	INTEGER,
+	"Price"	REAL,
+	"Movie"	INTEGER NOT NULL,
+	"Room"	INTEGER NOT NULL,
+	FOREIGN KEY("Movie") REFERENCES "Movie"("Id"),
+	PRIMARY KEY("Id")
+);
+CREATE TABLE IF NOT EXISTS "Ticket" (
+	"Id"	INTEGER,
+	"MovieDisplay"	INTEGER NOT NULL,
+	FOREIGN KEY("MovieDisplay") REFERENCES "MovieDisplay"("Id"),
+	PRIMARY KEY("Id" AUTOINCREMENT)
+);
+COMMIT;

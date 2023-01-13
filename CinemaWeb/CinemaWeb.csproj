@@ -4,7 +4,12 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>18bd8335-4af9-4b2a-a798-4ff533b5967d</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="DB.db" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />

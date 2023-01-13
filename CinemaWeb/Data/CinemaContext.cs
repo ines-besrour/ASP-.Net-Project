@@ -18,7 +18,7 @@ namespace CinemaWeb.Data
             if (instance == null)
             {
                 var optionBuilder = new DbContextOptionsBuilder<CinemaContext>();
-                optionBuilder.UseSqlite($"Data Source=‪C:\\Users\\heha\\OneDrive\\Desktop\\GL3\\DB.db");
+                optionBuilder.UseSqlite($"Data Source=DB.db");
                 instance = new CinemaContext(optionBuilder.Options);
             }
 
