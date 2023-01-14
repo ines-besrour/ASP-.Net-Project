@@ -12,6 +12,6 @@ namespace CinemaWeb.Models
         public string ImageURL { get; set; }
         public MovieCategory MovieCategory { get; set; }
 
-        //public MovieDisplay MovieDisplays { get; set; }
+        public MovieDisplay MovieDisplays { get; set; }
     }
 }

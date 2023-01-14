@@ -12,10 +12,11 @@ namespace CinemaWeb.Controllers
         {
             CinemaContext cinemaContext = CinemaContext.Instantiate_CinemaContext();
             MovieRepository movieRepository = new MovieRepository(cinemaContext);
-            foreach (String s in movieRepository.GetMovies())
+            foreach (String s in movieRepository.GetAll())
                 Debug.WriteLine(s);
 
             return View(movieRepository.GetMovies());
+            return View();
         }
 
 /*        public IActionResult GetMovie(string id)

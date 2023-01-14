@@ -8,7 +8,8 @@ namespace CinemaWeb.Data
 {
     public interface IMovieRepository<T> where T : class
     {
-        T Get(int id); IEnumerable<T> GetAll();
+        T Get(int id); 
+        IEnumerable<T> GetAll();
         IEnumerable<T> Find(Expression<Func<T, bool>> predicate);
         IEnumerable<string> GetMovies();
     }
@@ -61,7 +62,7 @@ namespace CinemaWeb.Data
         }
         public IEnumerable<String> GetMovies()
         {
-            return cinemaContext.Movie.Select(s => s.Name).Distinct().ToList();
+            return cinemaContext.Movie.Select(movie => movie.Name).Distinct().ToList();
         }
     }
 }
